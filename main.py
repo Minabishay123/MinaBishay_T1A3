@@ -88,3 +88,23 @@ class Personal_Finance_Tracker:
             print(f"You are {self.savings_goal - self.savings} away from your savings goal")
             
             
+tracker = Personal_Finance_Tracker()
+
+tracker.add_expense()
+tracker.add_expense()
+tracker.add_expense()
+
+tracker.set_budget()
+tracker.set_budget()
+tracker.set_budget()
+
+tracker.set_budget()
+tracker.set_budget()
+tracker.set_budget()
+
+tracker.add_savings()
+
+tracker.set_savings_goal()
+
+tracker.check_budget()
+tracker.check_savings_goal()
