@@ -1,6 +1,5 @@
-from matplotlib import pyplot as plt  # type: ignore
 from datetime import datetime
-
+import json
 
 class Personal_Finance_Tracker:
     """
@@ -83,8 +82,6 @@ class Personal_Finance_Tracker:
             if sum(self.expenses.get(category, [])) > budget:
                 print(f"Warning: You have exceeded your budget for {category}.")
 
-        
-
     def check_savings_goal(self):
         """
         Checks if savings meet or exceed the savings goal and prints a message accordingly.
@@ -92,11 +89,27 @@ class Personal_Finance_Tracker:
         if self.savings >= self.savings_goal:
             print(f"You have reached your savings goal of ${self.savings_goal}.")
         else:
-            print(
-                f"You are {self.savings_goal - self.savings} away from your savings goal"
-            )
+            print(f"You are {self.savings_goal - self.savings} away from your savings goal")
 
-    
+    def save_data(self):
+        """
+        Save the user's data to a file.
+        """
+        data = {'expenses': self.expenses, 'budgets': self.budgets, 'savings': self.savings, 'savings_goal': self.savings_goal}
+        with open('data.json', 'w') as f:
+            json.dump(data, f)
+
+    def load_data(self):
+        """
+        Load the user's data from a file.
+        """
+        with open('data.json', 'r') as f:
+            data = json.load(f)
+        self.expenses = data['expenses']
+        self.budgets = data['budgets']
+        self.savings = data['savings']
+        self.savings_goal = data['savings_goal']
+
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
 
@@ -115,3 +128,6 @@ tracker.set_savings_goal(600)  # this is for setting the savings goal
 tracker.check_budget()  # this is for checking the budget
 tracker.check_savings_goal()  # this is for checking the savings goal
 
+tracker.save_data() # this is for saving the data into the json file
+    
+   
