@@ -71,13 +71,20 @@ class Personal_Finance_Tracker:
         self.savings_goal = amount
 
     def check_budget(self):
+        """
+        Checks if expenses exceed the budget for each category and prints a warning message if so.
+        """
         for category, budget in self.budget.items():
             if sum(self.expenses.get(category, [])) > budget:
                 print(f"You have exceeded your budget for {category}.")
-                
-    
+
     def check_savings_goal(self):
+        """
+        Checks if savings meet or exceed the savings goal and prints a message accordingly.
+        """
         if self.savings >= self.savings_goal:
             print(f"You have reached your savings goal of ${self.savings_goal}.")
         else:
             print(f"You are {self.savings_goal - self.savings} away from your savings goal")
+            
+            
