@@ -17,3 +17,11 @@ class Personal_Finance_Tracker:
         self.budgets = {}
         self.savings = 0
         self.savings_goal = 0
+
+    def add_expense(self, category, amount):
+        if category not in self.expenses:
+            self.expenses[category] = []
+        self.expenses[category].append(amount)
+
+    def set_budget(self, category, amount):
+        set.budget[category] = amount
