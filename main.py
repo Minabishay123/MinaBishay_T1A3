@@ -19,9 +19,53 @@ class Personal_Finance_Tracker:
         self.savings_goal = 0
 
     def add_expense(self, category, amount):
+        """
+        Add an expense to the tracker.
+
+        Args:
+        - category (str): The category of the expense.
+        - amount (float): The amount of the expense.
+
+        Returns:
+        None
+        """
         if category not in self.expenses:
             self.expenses[category] = []
         self.expenses[category].append(amount)
 
     def set_budget(self, category, amount):
-        set.budget[category] = amount
+        """
+        Set a budget for a category.
+
+        Args:
+        - category (str): The category for which to set the budget.
+        - amount (float): The budget amount.
+
+        Returns:
+        None
+        """
+        self.budgets[category] = amount
+    
+    def add_savings(self, amount):
+        """
+        Add savings to the tracker.
+
+        Args:
+        - amount (float): The amount of savings.
+
+        Returns:
+        None
+        """
+        self.savings += amount
+        
+    def set_savings_goal(self, amount):
+        """
+        Set the savings goal.
+
+        Args:
+        - amount (float): The savings goal.
+
+        Returns:
+        None
+        """
+        self.savings_goal = amount
