@@ -1,3 +1,7 @@
+from matplotlib import pyplot as plt  # type: ignore
+import datetime
+
+
 class Personal_Finance_Tracker:
     """
     A class to represent a personal finance tracker.
@@ -85,22 +89,35 @@ class Personal_Finance_Tracker:
         if self.savings >= self.savings_goal:
             print(f"You have reached your savings goal of ${self.savings_goal}.")
         else:
-            print(f"You are {self.savings_goal - self.savings} away from your savings goal")
-            
-            
-tracker = Personal_Finance_Tracker() # creates an instance of Personal_Finance_Tracker
+            print(
+                f"You are {self.savings_goal - self.savings} away from your savings goal"
+            )
 
-tracker.add_expense("food", 50) #adds some expense items to my tracker
+    def plot_expenses(self):
+        for category, expenses in self.expenses.items():
+            plt.plot(expenses, label=category)
+        plt.xlabel("Time")
+        plt.ylabel("Amount")
+        plt.title("Expenses Over Time")
+        plt.legend()
+        plt.savefig("expenses.png")
+
+
+tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
+
+tracker.add_expense("food", 50)  # adds some expense items to my tracker
 tracker.add_expense("rent", 500)
 tracker.add_expense("entertainment", 150)
 
-tracker.set_budget("food", 200) #sets the budget for each expense item
+tracker.set_budget("food", 200)  # sets the budget for each expense item
 tracker.set_budget("rent", 500)
 tracker.set_budget("entertainment", 200)
 
-tracker.add_savings(100) #manual input for savings that have been added to tracker
+tracker.add_savings(100)  # manual input for savings that have been added to tracker
 
-tracker.set_savings_goal(600) #this is for setting the savings goal
+tracker.set_savings_goal(600)  # this is for setting the savings goal
 
-tracker.check_budget() #this is for checking the budget
-tracker.check_savings_goal() #this is for checking the savings goal
+tracker.check_budget()  # this is for checking the budget
+tracker.check_savings_goal()  # this is for checking the savings goal
+
+tracker.plot_expenses()  # this is for plotting the expenses overtime as a visual representation
