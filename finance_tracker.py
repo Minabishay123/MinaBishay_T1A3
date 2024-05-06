@@ -74,7 +74,7 @@ class Personal_Finance_Tracker:
         """
         Checks if expenses exceed the budget for each category and prints a warning message if so.
         """
-        for category, budget in self.budget.items():
+        for category, budget in self.budgets.items():
             if sum(self.expenses.get(category, [])) > budget:
                 print(f"You have exceeded your budget for {category}.")
 
@@ -88,23 +88,19 @@ class Personal_Finance_Tracker:
             print(f"You are {self.savings_goal - self.savings} away from your savings goal")
             
             
-tracker = Personal_Finance_Tracker()
+tracker = Personal_Finance_Tracker() # creates an instance of Personal_Finance_Tracker
 
-tracker.add_expense()
-tracker.add_expense()
-tracker.add_expense()
+tracker.add_expense("food", 50) #adds some expense items to my tracker
+tracker.add_expense("rent", 500)
+tracker.add_expense("entertainment", 150)
 
-tracker.set_budget()
-tracker.set_budget()
-tracker.set_budget()
+tracker.set_budget("food", 200) #sets the budget for each expense item
+tracker.set_budget("rent", 500)
+tracker.set_budget("entertainment", 200)
 
-tracker.set_budget()
-tracker.set_budget()
-tracker.set_budget()
+tracker.add_savings(100) #manual input for savings that have been added to tracker
 
-tracker.add_savings()
+tracker.set_savings_goal(600) #this is for setting the savings goal
 
-tracker.set_savings_goal()
-
-tracker.check_budget()
-tracker.check_savings_goal()
+tracker.check_budget() #this is for checking the budget
+tracker.check_savings_goal() #this is for checking the savings goal
