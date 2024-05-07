@@ -160,27 +160,21 @@ class Personal_Finance_Tracker:
    
 
 
-tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
+def run_tracker():
+    tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
 
-tracker.add_expense()  # adds some expense items to my tracker
-# tracker.add_expense()
-# tracker.add_expense()
+    tracker.add_expense()  # adds some expense items to my tracker
+    tracker.set_budget()  # sets the budget for each expense item
+    tracker.add_savings()  # manual input for savings that have been added to tracker
+    tracker.set_savings_goal()  # this is for setting the savings goal
 
-tracker.set_budget()  # sets the budget for each expense item
-# tracker.set_budget()
-# tracker.set_budget()
+    tracker.check_budget()  # this is for checking the budget
+    tracker.check_savings_goal()  # this is for checking the savings goal
 
-tracker.add_savings()  # manual input for savings that have been added to tracker
+    tracker.save_data()  # this is for saving the data into the json file
+    tracker.giving_some_savings_advice()  # this will give some savings advice
+    tracker.load_data()  # this will load the data into the json file
 
-tracker.set_savings_goal()  # this is for setting the savings goal
-
-tracker.check_budget()  # this is for checking the budget
-tracker.check_savings_goal()  # this is for checking the savings goal
-
-tracker.save_data()  # this is for saving the data into the json file
-
-tracker.giving_some_savings_advice()  # this will give some savings advice
-
-tracker.load_data()  # this will load the data into the json file
-
+if __name__ == "__main__":
+    run_tracker()
 

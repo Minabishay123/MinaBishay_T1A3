@@ -1,4 +1,5 @@
 import pytest
+from unittest.mock import patch
 from finance_tracker import Personal_Finance_Tracker
 
 def test_add_expense():
@@ -8,8 +9,9 @@ def test_add_expense():
     This test checks if the add_expense method raises a ValueError when trying to add a negative expense.
     """
     tracker = Personal_Finance_Tracker()
-    with pytest.raises(ValueError):
-        tracker.add_expense("food", -50)
+    with patch('builtins.input', side_effect=["food", "-50", "done"]):
+        with pytest.raises(ValueError):
+            tracker.add_expense()
 
 def test_set_budget():
     """
@@ -18,8 +20,9 @@ def test_set_budget():
     This test checks if the set_budget method raises a ValueError when trying to set a negative budget.
     """
     tracker = Personal_Finance_Tracker()
-    with pytest.raises(ValueError):
-        tracker.set_budget("food", -200)
+    with patch('builtins.input', side_effect=["food", "-200"]):
+        with pytest.raises(ValueError):
+            tracker.set_budget()
 
 def test_add_savings():
     """
@@ -28,8 +31,9 @@ def test_add_savings():
     This test checks if the add_savings method raises a ValueError when trying to add a negative savings amount.
     """
     tracker = Personal_Finance_Tracker()
-    with pytest.raises(ValueError):
-        tracker.add_savings(-900)
+    with patch('builtins.input', side_effect=["-900"]):
+        with pytest.raises(ValueError):
+            tracker.add_savings()
 
 def test_set_savings_goal():
     """
@@ -38,5 +42,6 @@ def test_set_savings_goal():
     This test checks if the set_savings_goal method raises a ValueError when trying to set a negative savings goal.
     """
     tracker = Personal_Finance_Tracker()
-    with pytest.raises(ValueError):
-        tracker.set_savings_goal(-600)
+    with patch('builtins.input', side_effect=["-600"]):
+        with pytest.raises(ValueError):
+            tracker.set_savings_goal()
