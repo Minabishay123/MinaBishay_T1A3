@@ -1,1 +1,1 @@
-{"expenses": {"food": [50], "rent": [500], "entertainment": [200]}, "budgets": {"food": 200, "rent": 500, "entertainment": 200}, "savings": 900, "savings_goal": 600}
+{"expenses": {"food": [50], "rent": [500], "entertainment": [150]}, "budgets": {"food": 100, "rent": 500, "entertainment": 150}, "savings": 100, "savings_goal": 550}
