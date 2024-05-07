@@ -1,4 +1,5 @@
 import json
+import random
 
 
 class Personal_Finance_Tracker:
@@ -117,6 +118,14 @@ class Personal_Finance_Tracker:
         self.budgets = data["budgets"]
         self.savings = data["savings"]
         self.savings_goal = data["savings_goal"]
+        
+    def giving_some_savings_advice(self):
+        """
+        Give the user some tips on saving money, based on a 'tips' variable which will include several tips and the method will randomly choose one each time the app is run.
+        """
+        tips = ["Cook at home instead of eating out.", "Try to use public transportation instead of driving.", "Buy items in bulk to save money.", "Turn off lights when you leave a room to save on electricity costs."]
+        print(random.choice(tips))
+        
 
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
@@ -137,3 +146,5 @@ tracker.check_budget()  # this is for checking the budget
 tracker.check_savings_goal()  # this is for checking the savings goal
 
 tracker.save_data()  # this is for saving the data into the json file
+
+tracker.giving_some_savings_advice() # this will give some savings advice
