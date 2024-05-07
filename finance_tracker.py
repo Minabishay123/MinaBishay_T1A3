@@ -115,17 +115,19 @@ class Personal_Finance_Tracker:
         }
         with open("data.json", "w") as f:
             json.dump(data, f)
-
+            
     def load_data(self):
         """
-        Load the user's data from a file.
+        Load the user's data from a file. This will also check if the data file exists before trying to load data from it.
         """
-        with open("data.json", "r") as f:
-            data = json.load(f)
-        self.expenses = data["expenses"]
-        self.budgets = data["budgets"]
-        self.savings = data["savings"]
-        self.savings_goal = data["savings_goal"]
+        if os.path.exists("data.json"):
+            with open("data.json", "r") as f:
+                data = json.load(f)
+            self.expenses = data["expenses"]
+            self.budgets = data["budgets"]
+            self.savings = data["savings"]
+            self.savings_goal = data["savings_goal"]
+
 
     def giving_some_savings_advice(self):
         """
@@ -139,24 +141,14 @@ class Personal_Finance_Tracker:
         ]
         print(f"Tip of the day:", (random.choice(tips)))
 
-    def load_data(self):
-        """
-        Load the user's data from a file. This will also check if the data file exists before trying to load data from it.
-        """
-        if os.path.exists("data.json"):
-            with open("data.json", "r") as f:
-                data = json.load(f)
-            self.expenses = data["expenses"]
-            self.budgets = data["budgets"]
-            self.savings = data["savings"]
-            self.savings_goal = data["savings_goal"]
+ 
             
    
 
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
 
-tracker.add_expense("food", 50)  # adds some expense items to my tracker
+tracker.add_expense("food", 150)  # adds some expense items to my tracker
 tracker.add_expense("rent", 500)
 tracker.add_expense("entertainment", 150)
 
@@ -164,7 +156,7 @@ tracker.set_budget("food", 100)  # sets the budget for each expense item
 tracker.set_budget("rent", 500)
 tracker.set_budget("entertainment", 150)
 
-tracker.add_savings(100)  # manual input for savings that have been added to tracker
+tracker.add_savings(300)  # manual input for savings that have been added to tracker
 
 tracker.set_savings_goal(550)  # this is for setting the savings goal
 
