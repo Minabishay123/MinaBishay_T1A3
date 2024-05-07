@@ -1,5 +1,6 @@
 import json
 import random
+import os
 
 
 class Personal_Finance_Tracker:
@@ -37,8 +38,7 @@ class Personal_Finance_Tracker:
         if category not in self.expenses:
             self.expenses[category] = []
         self.expenses[category].append(amount)
-    
-   
+
     def set_budget(self, category, amount):
         """
         Set a budget for a category.
@@ -118,14 +118,30 @@ class Personal_Finance_Tracker:
         self.budgets = data["budgets"]
         self.savings = data["savings"]
         self.savings_goal = data["savings_goal"]
-        
+
     def giving_some_savings_advice(self):
         """
         Give the user some tips on saving money, based on a 'tips' variable which will include several tips and the method will randomly choose one each time the app is run.
         """
-        tips = ["Cook at home instead of eating out.", "Try to use public transportation instead of driving.", "Buy items in bulk to save money.", "Turn off lights when you leave a room to save on electricity costs."]
+        tips = [
+            "Cook at home instead of eating out.",
+            "Try to use public transportation instead of driving.",
+            "Buy items in bulk to save money.",
+            "Turn off lights when you leave a room to save on electricity costs.",
+        ]
         print(random.choice(tips))
-        
+
+    def load_data(self):
+        """
+        Load the user's data from a file. This will also check if the data file exists before trying to load data from it.
+        """
+        if os.path.exists("data.json"):
+            with open("data.json", "r") as f:
+                data = json.load(f)
+            self.expenses = data["expenses"]
+            self.budgets = data["budgets"]
+            self.savings = data["savings"]
+            self.savings_goal = data["savings_goal"]
 
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
@@ -147,4 +163,6 @@ tracker.check_savings_goal()  # this is for checking the savings goal
 
 tracker.save_data()  # this is for saving the data into the json file
 
-tracker.giving_some_savings_advice() # this will give some savings advice
+tracker.giving_some_savings_advice()  # this will give some savings advice
+
+tracker.load_data()  # this will load the data into the json file
