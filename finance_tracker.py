@@ -40,8 +40,6 @@ class Personal_Finance_Tracker:
         if category not in self.expenses:
             self.expenses[category] = []
         self.expenses[category].append(amount)
-        
-        
 
     def set_budget(self, category, amount):
         """
