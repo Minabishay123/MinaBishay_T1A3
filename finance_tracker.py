@@ -23,66 +23,80 @@ class Personal_Finance_Tracker:
         self.savings = 0
         self.savings_goal = 0
 
-    def add_expense(self, category, amount):
+    def add_expense(self):
         """
         Add an expense to the tracker.
-
+        
         Args:
-        - category (str): The category of the expense.
-        - amount (float): The amount of the expense.
-
+        None
+        
         Returns:
         None
         """
-        if amount < 0:
-            raise ValueError("Amount must be positive.")
+        while True:
+            category = input("Enter the category of the expense (or 'done' to finish): ")
+            if category.lower() == 'done':
+                break
+            
+            amount = float(input("Enter the amount of the expense: "))
+            
+            if amount < 0:
+                raise ValueError("Amount must be positive.")
+            
+            if category not in self.expenses:
+                self.expenses[category] = []
+                self.expenses[category].append(amount)
 
-        if category not in self.expenses:
-            self.expenses[category] = []
-        self.expenses[category].append(amount)
 
-    def set_budget(self, category, amount):
+    def set_budget(self):
         """
         Set a budget for a category.
 
         Args:
-        - category (str): The category for which to set the budget.
-        - amount (float): The budget amount.
+        None
 
         Returns:
         None
         """
+        category = input("Enter the category for which to set the budget: ")
+        amount = float(input("Enter the budget amount: "))
+
         if amount < 0:
             raise ValueError("Amount must be positive.")
         self.budgets[category] = amount
 
-    def add_savings(self, amount):
+    def add_savings(self):
         """
         Add savings to the tracker.
 
         Args:
-        - amount (float): The amount of savings.
+        None
 
         Returns:
         None
         """
+        amount = float(input("Enter the amount of savings: "))
+
         if amount < 0:
             raise ValueError("Amount must be positive.")
         self.savings += amount
 
-    def set_savings_goal(self, amount):
+    def set_savings_goal(self):
         """
         Set the savings goal.
 
         Args:
-        - amount (float): The savings goal.
+        None
 
         Returns:
         None
         """
+        amount = float(input("Enter the savings goal: "))
+
         if amount < 0:
             raise ValueError("Amount must be positive.")
         self.savings_goal = amount
+
 
     def check_budget(self):
         """
@@ -148,17 +162,17 @@ class Personal_Finance_Tracker:
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
 
-tracker.add_expense("food", 150)  # adds some expense items to my tracker
-tracker.add_expense("rent", 500)
-tracker.add_expense("entertainment", 150)
+tracker.add_expense()  # adds some expense items to my tracker
+# tracker.add_expense()
+# tracker.add_expense()
 
-tracker.set_budget("food", 100)  # sets the budget for each expense item
-tracker.set_budget("rent", 500)
-tracker.set_budget("entertainment", 150)
+tracker.set_budget()  # sets the budget for each expense item
+# tracker.set_budget()
+# tracker.set_budget()
 
-tracker.add_savings(300)  # manual input for savings that have been added to tracker
+tracker.add_savings()  # manual input for savings that have been added to tracker
 
-tracker.set_savings_goal(550)  # this is for setting the savings goal
+tracker.set_savings_goal()  # this is for setting the savings goal
 
 tracker.check_budget()  # this is for checking the budget
 tracker.check_savings_goal()  # this is for checking the savings goal
