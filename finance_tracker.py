@@ -137,7 +137,7 @@ class Personal_Finance_Tracker:
             "Buy items in bulk to save money.",
             "Turn off lights when you leave a room to save on electricity costs.",
         ]
-        print(random.choice(tips))
+        print(f"Tip of the day:", (random.choice(tips)))
 
     def load_data(self):
         """
