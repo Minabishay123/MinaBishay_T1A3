@@ -1,5 +1,5 @@
-from datetime import datetime
 import json
+
 
 class Personal_Finance_Tracker:
     """
@@ -32,11 +32,12 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
-        timestamp = datetime.now()
+
         if category not in self.expenses:
             self.expenses[category] = []
         self.expenses[category].append(amount)
-
+    
+   
     def set_budget(self, category, amount):
         """
         Set a budget for a category.
@@ -89,45 +90,50 @@ class Personal_Finance_Tracker:
         if self.savings >= self.savings_goal:
             print(f"You have reached your savings goal of ${self.savings_goal}.")
         else:
-            print(f"You are {self.savings_goal - self.savings} away from your savings goal")
+            print(
+                f"You are {self.savings_goal - self.savings} away from your savings goal"
+            )
 
     def save_data(self):
         """
         Save the user's data to a file.
         """
-        data = {'expenses': self.expenses, 'budgets': self.budgets, 'savings': self.savings, 'savings_goal': self.savings_goal}
-        with open('data.json', 'w') as f:
+        data = {
+            "expenses": self.expenses,
+            "budgets": self.budgets,
+            "savings": self.savings,
+            "savings_goal": self.savings_goal,
+        }
+        with open("data.json", "w") as f:
             json.dump(data, f)
 
     def load_data(self):
         """
         Load the user's data from a file.
         """
-        with open('data.json', 'r') as f:
+        with open("data.json", "r") as f:
             data = json.load(f)
-        self.expenses = data['expenses']
-        self.budgets = data['budgets']
-        self.savings = data['savings']
-        self.savings_goal = data['savings_goal']
+        self.expenses = data["expenses"]
+        self.budgets = data["budgets"]
+        self.savings = data["savings"]
+        self.savings_goal = data["savings_goal"]
 
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
 
-tracker.add_expense("food", 500)  # adds some expense items to my tracker
+tracker.add_expense("food", 50)  # adds some expense items to my tracker
 tracker.add_expense("rent", 500)
-tracker.add_expense("entertainment", 150)
+tracker.add_expense("entertainment", 200)
 
 tracker.set_budget("food", 200)  # sets the budget for each expense item
 tracker.set_budget("rent", 500)
 tracker.set_budget("entertainment", 200)
 
-tracker.add_savings(700)  # manual input for savings that have been added to tracker
+tracker.add_savings(900)  # manual input for savings that have been added to tracker
 
 tracker.set_savings_goal(600)  # this is for setting the savings goal
 
 tracker.check_budget()  # this is for checking the budget
 tracker.check_savings_goal()  # this is for checking the savings goal
 
-tracker.save_data() # this is for saving the data into the json file
-    
-   
+tracker.save_data()  # this is for saving the data into the json file
