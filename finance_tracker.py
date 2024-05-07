@@ -34,10 +34,14 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
+        if amount < 0:
+            raise ValueError("Amount must be positive.")
 
         if category not in self.expenses:
             self.expenses[category] = []
         self.expenses[category].append(amount)
+        
+        
 
     def set_budget(self, category, amount):
         """
@@ -50,6 +54,8 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
+        if amount < 0:
+            raise ValueError("Amount must be positive.")
         self.budgets[category] = amount
 
     def add_savings(self, amount):
@@ -62,6 +68,8 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
+        if amount < 0:
+            raise ValueError("Amount must be positive.")
         self.savings += amount
 
     def set_savings_goal(self, amount):
@@ -74,6 +82,8 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
+        if amount < 0:
+            raise ValueError("Amount must be positive.")
         self.savings_goal = amount
 
     def check_budget(self):
