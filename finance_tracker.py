@@ -150,6 +150,8 @@ class Personal_Finance_Tracker:
             self.budgets = data["budgets"]
             self.savings = data["savings"]
             self.savings_goal = data["savings_goal"]
+            
+   
 
 
 tracker = Personal_Finance_Tracker()  # creates an instance of Personal_Finance_Tracker
