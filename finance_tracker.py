@@ -58,12 +58,16 @@ class Personal_Finance_Tracker:
         Returns:
         None
         """
-        category = input("Enter the category for which to set the budget: ")
-        amount = float(input("Enter the budget amount: "))
-
-        if amount < 0:
-            raise ValueError("Amount must be positive.")
-        self.budgets[category] = amount
+        while True:
+            category = input("Enter the category of the budget (or 'done' to finish): ")
+            if category.lower() == 'done':
+                break
+            
+            amount = float(input("Enter the budget amount: "))
+            
+            if amount < 0:
+                raise ValueError("Amount must be positive.")
+            self.budgets[category] = amount
 
     def add_savings(self):
         """
