@@ -1,1 +1,1 @@
-{"expenses": {"bread": [100.0], "fish": [100.0]}, "budgets": {"bread": 50.0, "fish": 50.0}, "savings": 100.0, "savings_goal": 300.0}
+{"expenses": {"food": [200.0]}, "budgets": {"food": 150.0}, "savings": 100.0, "savings_goal": 100.0}
