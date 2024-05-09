@@ -1,65 +1,155 @@
 # Personal Finance Tracker
 
-## System Requirements
+## Introduction
 
-- **Operating System:** Any OS that can run Python (Windows, macOS, Linux, etc.)
-- **Python version:** Python 3.10 or higher
+This README.md document serves as the guide for the Personal Finance Tracker application. Below are the details and documentation requirements for the application.
 
-## Installation
+## Full Attribution
 
-1. Download the source code from the repository or location it is hosted.
-2. Navigate to the directory where the source code is located in your terminal or command prompt.
+- The code for the Personal Finance Tracker application was written by Mina Bishay.
+- The application utilises the following libraries/modules:
+  - [pytest](https://pytest.org/) for testing purposes.
+  - [json](https://docs.python.org/3/library/json.html) for working with JSON data.
+  - [random](https://docs.python.org/3/library/random.html) for generating random tips.
+  - [os](https://docs.python.org/3/library/os.html) for interacting with the operating system.
+  - [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) for mocking objects in unit tests.
+  - [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide is followed for code formatting.
 
-## Dependencies
+### Source Control Repository
 
-Your application requires the following Python packages:
+The source code for the Personal Finance Tracker application can be found in the following GitHub repository:
+[Personal Finance Tracker Repository](https://github.com/Minabishay123/MinaBishay_T1A3)
 
-- `json`: This is a built-in Python package, so you don’t need to install it separately.
-- `random`: This is a built-in Python package used for generating random numbers.
-- `os`: This is a built-in Python package used for interacting with the operating system.
+#### Code Style Guide
 
-## Running the Application
+The application adheres to the PEP 8 style guide for Python code.
 
-To run the application, use the following command in your terminal or command prompt:
+#### Features
 
-`python finance_tracker.py`
+1. **Expense Tracking**
 
-## Command Line Arguments
+   - **Description:** Users can add and track expenses by category. The application prompts the user to input expense categories and amounts. It then checks if the expenses exceed the set budget for each category and provides a warning if necessary.
+   - **Walkthrough:**
+     - User inputs expense categories and amounts.
+     - Application checks if expenses exceed the budget for each category.
+     - If expenses exceed the budget, a warning message is displayed.
 
-Currently, the application does not support command line arguments. All interactions are done within the application after it has started.
+2. **Budget Setting**
 
-## Using the Application
+   - **Description:** Users can set budgets for different expense categories. The application prompts the user to input budget categories and amounts.
+   - **Walkthrough:**
+     - User sets budget for each expense category.
+     - Application stores the budget for each category.
 
-After starting the application, you can use the following methods to track your personal finance:
+3. **Savings Management**
+   - **Description:** Users can add savings and set a savings goal. The application prompts the user to input the amount of savings and the savings goal. It then checks if the savings meet or exceed the savings goal.
+   - **Walkthrough:**
+     - User inputs the amount of savings and sets a savings goal.
+     - Application checks if savings meet or exceed the savings goal.
+     - Application provides feedback based on the comparison.
 
-- `add_expense(category: str, amount: float)`: Add an expense under a specific category.
-- `set_budget(category: str, amount: float)`: Set a budget for a specific category.
-- `add_savings(amount: float)`: Add an amount to your savings.
-- `set_savings_goal(amount: float)`: Set a savings goal.
-- `check_budget()`: Check if expenses exceed the budget for each category.
-- `check_savings_goal()`: Check if savings meet or exceed the savings goal.
-- `save_data()`: Save the user’s data to a file.
-- `load_data()`: Load the user’s data from a file.
-- `giving_some_savings_advice()`: Get a random tip on saving money.
-  Remember to replace `category` and `amount` with your desired values.
+#### Implementation Plan
 
-## Installing the Ubuntu Terminal on Windows
+Feature: Expense Tracking
 
-1. Open the Microsoft Store.
-2. Search for “Ubuntu”.
-3. Select the version you want (usually the one with the highest number, which is the latest version).
-4. Click “Get” or “Install”.
-5. Once installed, you can launch the Ubuntu terminal from the Start menu.
+**Tasks:**
 
-## Installing Visual Studio Code
+![Implementation Plan](src/docs/Expense_tracking_checklist.png)
 
-1. Go to the [VSCode download page](https://code.visualstudio.com/).
-2. Download the version appropriate for your operating system (Windows, macOS, or Linux).
-3. Run the installer and follow the prompts.
+Feature: Budget Setting
 
-## Using Visual Studio Code
+- **Tasks:**
 
-1. Open VSCode.
-2. You can open a file or folder to work on from the “File” menu.
-3. The left sidebar gives you access to the explorer (where you can see your files), source control, debugging, and extensions.
-4. You can run Python code directly in VSCode by right-clicking in the file and selecting “Run Python File in Terminal”.
+![Implementation Plan](src/docs/Budget_setting_checklist.png)
+
+Feature: Savings Tracking
+
+- **Tasks:**
+
+![Implementation Plan](src/docs/Savings_Tracking_checklist.png)
+
+Feature: Budget and savings goal checking
+
+- **Tasks:**
+
+![Implementation Plan](src/docs/Budget_and_savings_goal_checking.png)
+
+Feature: Data Persistence
+
+- **Tasks:**
+
+![Implementation Plan](src/docs/data_persistence_checklist.png)
+
+Feature: Savings Advice
+
+- **Tasks:**
+
+![Implementation Plan](src/docs/savings_advice_checklist.png)
+
+#### Help Documentation
+
+#### Installation
+
+1. **Clone the Repository:**
+
+   - Open your terminal or command prompt.
+   - Navigate to the directory where you want to install the application.
+   - Run the following command to clone the repository:
+
+     ```Bash
+     git clone https://github.com/Minabishay123/MinaBishay_T1A3.git
+     ```
+
+2. **Navigate to Project Directory:**
+
+   - Change directory to the cloned repository:
+
+     ```Bash
+     cd MinaBishay_T1A3
+     ```
+
+3. **Open in VS Code:**
+
+   - In your console enter the following:
+
+     ```Bash
+     MinaBishay_T1A3$ code .
+     ```
+
+4. **Open Terminal:**
+
+   - Use the "Terminal" menu or the shortcut `Ctrl ~` to open a new terminal window within VSCode.
+
+5. **Run the Application:**
+
+   - In the terminal window, navigate to the project directory if not already there.
+   - Run the main script using the following command:
+
+     ```Bash
+     python finance_tracker.py
+     ```
+
+6. **Interact with the Application:**
+   - Once the application starts, follow the on-screen instructions to interact with it.
+   - Use keyboard input to input expense categories, amounts, budgets, savings, and savings goals as prompted.
+   - Press `Enter` after each input to proceed.
+7. **Install Dependencies:**
+   - The application requires Python 3.10 to be installed on your system. If you haven't installed Python yet, you can download it from the [official Python website](https://www.python.org/downloads/).
+
+#### Dependencies
+
+- Python 3.10
+- [pytest](https://pytest.org/) for testing purposes.
+- [json](https://docs.python.org/3/library/json.html) for working with JSON data.
+- [random](https://docs.python.org/3/library/random.html) for generating random tips.
+- [os](https://docs.python.org/3/library/os.html) for interacting with the operating system.
+- [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) for mocking objects in unit tests.
+
+#### System/Hardware Requirements
+
+- Compatible with Windows, macOS, and Linux operating systems.
+- Sufficient memory and processing power to run Python applications.
+
+#### Usage
+
+- After installing the application and navigating to the project directory, you can run the main script using the following command:
