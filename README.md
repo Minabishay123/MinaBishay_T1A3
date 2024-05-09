@@ -123,6 +123,11 @@ Feature: Savings Advice
 5. **Run the Application:**
 
    - In the terminal window, navigate to the project directory if not already there.
+
+     ```Bash
+     cd src
+     ```
+
    - Run the main script using the following command:
 
      ```Bash
