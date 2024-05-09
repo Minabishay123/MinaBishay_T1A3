@@ -129,11 +129,111 @@ Feature: Savings Advice
      python finance_tracker.py
      ```
 
-6. **Interact with the Application:**
+6. **Create Executable:**
+
+   - If you are using **PyInstaller**; in the terminal, navigate to the project directory if not already there.
+   - Run the following command to create an executable file:
+
+     ```Bash
+     pyinstaller main.py --onefile --name finance_tracker
+     ```
+
+   - This command will generate a `dist` directory in the project folder containing an executable file named `finance_tracker`.
+
+   **Using cx_Freeze:**
+
+   - Install the `cx_Freeze` library if you haven't already:
+
+     ```Bash
+     pip install cx-Freeze
+     ```
+
+   - Create a `setup.py` script in the project directory with the following contents:
+
+     ```python
+     from cx_Freeze import setup, Executable
+
+     setup (
+         name="finance_tracker",
+         version="1.0",
+         description="Personal Finance Tracker Application",
+         executables=[Executable("finance_tracker.py")],
+         )
+     ```
+
+   - Run the following command to create an executable:
+
+     ```Bash
+     python setup.py build
+     ```
+
+   **Using py2exe:**
+
+   - Install the `py2exe` library if you haven't already:
+
+     ```Bash
+     pip install py2exe
+     ```
+
+   - Create a `setup.py` script in the project directory with the following contents:
+
+     ```python
+     from distutils.core import setup
+     import py2exe
+
+     setup(
+       console=['finance_tracker.py'],
+       options={
+           'py2exe': {
+               'bundle_files': 1,
+               'compressed': True,
+           }
+       },
+       zipfile=None,
+     )
+     ```
+
+   - Run the following command to create an executable:
+
+     ```Bash
+     python setup.py py2exe
+     ```
+
+7. **Run as Executable:**
+
    - Once the application starts, follow the on-screen instructions to interact with it.
    - Use keyboard input to input expense categories, amounts, budgets, savings, and savings goals as prompted.
    - Press `Enter` after each input to proceed.
-7. **Install Dependencies:**
+
+   - Navigate to the `dist` directory in the project folder.
+   - Depending on your operating system, use one of the following methods to run the executable:
+
+     **Ubuntu/Linux:**
+
+     ```Bash
+     ./finance_tracker
+     ```
+
+     **Windows PowerShell:**
+
+     ```Bash
+     .\finance_tracker.exe
+     ```
+
+     **macOS Terminal:**
+
+     ```Bash
+     ./finance_tracker
+     ```
+
+8. **Interact with the Application:**
+
+   - Once the application starts, follow the on-screen instructions to interact with it.
+   - Use keyboard input to input expense categories, amounts, budgets, savings, and savings goals as prompted.
+   - Press `Enter` after each input to proceed.
+
+9. **Install Dependencies:**
+
    - The application requires Python 3.10 to be installed on your system. If you haven't installed Python yet, you can download it from the [official Python website](https://www.python.org/downloads/).
 
 #### Dependencies
@@ -149,7 +249,3 @@ Feature: Savings Advice
 
 - Compatible with Windows, macOS, and Linux operating systems.
 - Sufficient memory and processing power to run Python applications.
-
-#### Usage
-
-- After installing the application and navigating to the project directory, you can run the main script using the following command:
