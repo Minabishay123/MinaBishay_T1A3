@@ -146,7 +146,7 @@ Feature: Savings Advice
    - Run the following command to create an executable file:
 
      ```Bash
-     pyinstaller main.py --onefile --name finance_tracker
+     pyinstaller finance_tracker.py --onefile --name finance_tracker
      ```
 
    - This command will generate a `dist` directory in the project folder containing an executable file named `finance_tracker`.
