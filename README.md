@@ -108,6 +108,12 @@ Feature: Savings Advice
      cd MinaBishay_T1A3
      ```
 
+   - Create a virtual environment for your project
+
+     ```Bash
+     python3 -m venv .venv
+     ```
+
 3. **Open in VS Code:**
 
    - In your console enter the following:
